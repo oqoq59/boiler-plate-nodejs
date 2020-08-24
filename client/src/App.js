@@ -10,7 +10,7 @@ import {
 
 import LandingPage from './components/views/LandingPage/LandingPage'
 import LoginPage from './components/views/LoginPage/LoginPage'
-import Registerpage from './components/views/RegisterPage/RegisterPage'
+import RegisterPage from './components/views/RegisterPage/RegisterPage'
 
 function App() {
   return (
@@ -26,12 +26,8 @@ function App() {
       */}
       <Switch>
         <Route exact path="/" component={LandingPage} />
-        <Route path="/login">
-          <LoginPage />
-        </Route>
-        <Route path="/register">
-          <Registerpage />
-        </Route>
+        <Route exact path="/login" component={LoginPage} />
+        <Route path="/register" component={RegisterPage} />
       </Switch>
     </div>
   </Router>
