@@ -5,12 +5,14 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import 'antd/dist/antd.css';
-import { applyMiddleware,createStroe } from 'redux';
+import { applyMiddleware,createStore } from 'redux';
 import promiseMiddleware from 'redux-promise';
 import ReduxThunk from 'redux-thunk';
 import Reducer from './_reducers';
 
-const createStoreWithMiddelware = applyMiddleware(promiseMiddleware, ReduxThunk)(createStroe)
+const createStoreWithMiddelware = applyMiddleware(promiseMiddleware, ReduxThunk)(createStore)
+//const createStoreWithMiddleware = applyMiddleware(promiseMiddleware, ReduxThunk)(createStore)
+
 
 ReactDOM.render(
   <Provider
