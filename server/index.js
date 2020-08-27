@@ -65,6 +65,9 @@ app.post('/api/users/login', (req, res) => {
         //user에 담겨있는 토큰을 저장한다. 어디에? 쿠키, 로컬스토리지 등등
         res.cookie("x_auth", user.token)
           .status(200)
+          //로그인 성공시,
+          //user_action -> request ->user_reducer ->action.payload로 이 값이 넘어감
+          // reducer index.js에 있는 User값에 이것이 표시됨
           .json({loginSuccess: true, userId: user._id})
       })  
       

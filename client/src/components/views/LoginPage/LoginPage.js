@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
-import Axios from 'axios';
+//import Axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../../_actions/user_action';
-import { response } from 'express';
+//import { response } from 'express';
 
+
+//props 페이지 이동 위해서
 function LoginPage(props) {
-    
+    //dispatch 생성
     const dispatch = useDispatch();
     
     //return안 값을 바꾸려면 state를 통해서(react hook)
@@ -42,10 +44,12 @@ function LoginPage(props) {
         .then(response => {처리할 내용}) */
 
         //Redux사용
-        //dispatch이용해  Action 취함, loginUser라는 액션 생성 (user_action.js에  function 만듬)
+        //dispatch이용해  Action 취함, loginUser라는 액션 생성 (user_action.js에  function 만둘어줘야함)
         dispatch(loginUser(body))
+            //로그인 성공시 메인페이지로 이동
             .then(response => {
                 if(response.payload.loginSuccess) {
+                    //페이지 이동시 props.history.push()사용
                     props.history.push('/')
                 } else {
                     alert('Error')
