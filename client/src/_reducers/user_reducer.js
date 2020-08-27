@@ -1,5 +1,5 @@
 import {
-    LOGIN_USER
+    LOGIN_USER, REGISTER_USER
 } from '../_actions/types';
 
 //reducer=(previousState, action) => nextState 두개를 조합해서 다음state를 만들어주는 단계
@@ -15,7 +15,9 @@ export default function (state = {}, action) {
             //user_action.js에 있는 payload(백엔드, 서버에서 가져온 값 = server index에 로그인 성공시 json값)를 loginSuccess에 넣어줌 
             return {...state, loginSuccess: action.payload}
             break;
-    
+        case REGISTER_USER:
+            return {...state, register: action.payload}
+            break;
         default:
             return state;
     }

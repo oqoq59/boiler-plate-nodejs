@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {
-    LOGIN_USER
+    LOGIN_USER, REGISTER_USER
 } from './types';
 
 
@@ -15,6 +15,19 @@ export function loginUser(dataToSubmit) {
         //action에는 type과 response를 넘겨줌
     return {
         type: "LOGIN_USER",
+        payload: request
+    }
+}
+
+export function registerUser(dataToSubmit) {
+
+    const request = axios.post('/api/users/register', dataToSubmit)
+        .then(response => response.data)
+
+        //return 시켜 request를 reducer로 보냄, reducer=(previousState, action) => nextState 두개를 조합해서 다음state를 만들어주는 단계
+        //action에는 type과 response를 넘겨줌
+    return {
+        type: "REGISTER_USER",
         payload: request
     }
 }
