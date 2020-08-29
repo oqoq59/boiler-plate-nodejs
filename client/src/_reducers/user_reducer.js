@@ -1,5 +1,5 @@
 import {
-    LOGIN_USER, REGISTER_USER
+    LOGIN_USER, REGISTER_USER, AUTH_USER
 } from '../_actions/types';
 
 //reducer=(previousState, action) => nextState 두개를 조합해서 다음state를 만들어주는 단계
@@ -18,6 +18,10 @@ export default function (state = {}, action) {
         case REGISTER_USER:
             return {...state, register: action.payload}
             break;
+        case AUTH_USER:
+            //server index부분에 유저의 모든 정보가 -> action.payload, 그래서 이름을 userData로 지음
+            return {...state, userData: action.payload}
+            break;    
         default:
             return state;
     }
